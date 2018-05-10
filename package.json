@@ -1,5 +1,5 @@
 {
-  "name": "game-collection",
+  "name": "bond-collection",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/superginrai/game-collection.git"
+    "url": "git+https://github.com/superginrai/bond-collection.git"
   },
   "author": "Cory Booth",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/superginrai/game-collection/issues"
+    "url": "https://github.com/superginrai/bond-collection/issues"
   },
-  "homepage": "https://github.com/superginrai/game-collection#readme",
+  "homepage": "https://github.com/superginrai/bond-collection#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.3",
