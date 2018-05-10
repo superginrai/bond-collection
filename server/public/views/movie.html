@@ -1,0 +1,18 @@
+Good morning, 007.
+
+<h1>Movies</h1>
+<div>
+    <div class="card-group">
+        <div ng-repeat="movie in vm.movies.data">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" ng-src="images/{{movie.image_path}}" alt="no picture available">
+                <div class="card-body">
+                    <h5 class="card-title">{{movie.name}}({{movie.date}})</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{movie.actor}}</h6>
+                    <p class="card-text">Run Time: {{movie.runtime}} min.</p>
+                    <a class="btn btn-primary" ng-click="">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
