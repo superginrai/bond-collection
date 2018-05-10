@@ -1,6 +1,36 @@
 Good morning, 007.
 
 <h1>Movies</h1>
+
+<form ng-submit="vm.createMovie(vm.newMovie)">
+    <label>
+        Create a New Bond Movie:
+        <input placeholder="Movie Title" ng-model="vm.newMovie.name" />
+    </label>
+    <select ng-model="vm.newMovie.actor">
+        <option value="" disabled selected>Select Your Bond</option>
+        <option value="Daniel Craig">Daniel Craig</option>
+        <option value="Pierce Brosnan">Pierce Brosnan</option>
+        <option value="Timothy Dalton">Timothy Dalton</option>
+        <option value="Roger Moore">Roger Moore</option>
+        <option value="George Lazenby">George Lazenby</option>
+        <option value="Sean Connery">Sean Connery</option>
+        <option value="Idris Elba">Idris Elba</option>
+        <option value="Charlize Theron">Charlize Theron</option>
+        <option value="Tom Hiddleston">Tom Hiddleston</option>
+        <option value="Chadwick Boseman">Chadwick Boseman</option>
+        <option value="Jessica Chastain">Jesscia Chastain</option>
+        <option value="Cillain Murphy">Cillian Murphy</option>
+    </select>
+    <input placeholder="Release Year" ng-model="vm.newMovie.date" />
+    <input placeholder="Run-Time" ng-model="vm.newMovie.runtime" />
+    <select ng-model="vm.newMovie.image_path">
+        <option value="" disabled selected>Add a Poster/Picture?</option>
+        <option value="idris.jpg">Idris</option>
+    </select>
+    <input type="submit" value="Create Movie" />
+</form>
+
 <div>
     <div class="card-group">
         <div ng-repeat="movie in vm.movies.data">

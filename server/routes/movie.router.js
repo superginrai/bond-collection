@@ -13,4 +13,17 @@ router.get('/', (req, res) => {
         });
 });
 
+router.post('/', (req, res) => {
+    const movie = req.body;
+    pool.query(`INSERT INTO "movie" ("name", "actor", "date", "runtime", "image_path")
+    VALUES ($1, $2, $3, $4, $5);`, [movie.name, movie.actor, movie.date, movie.runtime, movie.image_path])
+        .then((results) => {
+            res.sendStatus(200);
+        })
+        .catch((error) => {
+            console.log('SQL POST error:', error);
+            res.sendStatus(500);
+        });
+});
+
 module.exports = router;
