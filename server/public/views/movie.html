@@ -19,14 +19,23 @@ Good morning, 007.
         <option value="Charlize Theron">Charlize Theron</option>
         <option value="Tom Hiddleston">Tom Hiddleston</option>
         <option value="Chadwick Boseman">Chadwick Boseman</option>
-        <option value="Jessica Chastain">Jesscia Chastain</option>
+        <option value="Emily Blunt">Emily Blunt</option>
         <option value="Cillain Murphy">Cillian Murphy</option>
+        <option value="Luke">Luke</option>
     </select>
     <input placeholder="Release Year" ng-model="vm.newMovie.date" />
     <input placeholder="Run-Time" ng-model="vm.newMovie.runtime" />
     <select ng-model="vm.newMovie.image_path">
         <option value="" disabled selected>Add a Poster/Picture?</option>
+        <option value="ally.jpeg">Ally</option>
+        <option value="chadwick.png">Chadwick</option>
+        <option value="charlize.jpg">Charlize</option>
+        <option value="cillian.jpg">Cillian</option>
+        <option value="emily.jpg">Emily</option>
         <option value="idris.jpg">Idris</option>
+        <option value="kris.jpeg">Kris</option>
+        <option value="luke.jpeg">Luke</option>
+        <option value="tom.jpg">Tom</option>
     </select>
     <input type="submit" value="Create Movie" />
 </form>
@@ -40,7 +49,7 @@ Good morning, 007.
                     <h5 class="card-title">{{movie.name}}({{movie.date}})</h5>
                     <h6 class="card-subtitle mb-2 text-muted">{{movie.actor}}</h6>
                     <p class="card-text">Run Time: {{movie.runtime}} min.</p>
-                    <a class="btn btn-primary" ng-click="">Delete</a>
+                    <a class="btn btn-primary" ng-click="vm.deleteMovie(movie)">Delete</a>
                 </div>
             </div>
         </div>

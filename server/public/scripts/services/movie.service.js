@@ -26,12 +26,31 @@ app.service('MovieService', ['$http', function ($http) {
         })
             .then(function (response) {
                 console.log('You created a new Bond movie!', response);
+                self.getMovies();
             })
             .catch(function (error) {
                 console.log('error on /movie POST', error);
             });
     }
 
+    self.deleteMovie = function (movieToDelete) {
+        if (confirm('Are you sure you want to delete?')) {
+            $http({
+                method: 'DELETE',
+                url: '/movies',
+                params: movieToDelete
+            })
+                .then(function (response) {
+                    console.log(response);
+                    self.getMovies();
+                })
+                .catch(function (error) {
+                    console.log('error on movie DELETE', error);
+                });
+        } else {
+            console.log('do NOT delete');
+        }
+    }
 
     self.getMovies();
 

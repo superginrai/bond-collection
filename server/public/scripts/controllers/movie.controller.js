@@ -2,4 +2,5 @@ app.controller('MovieController', ['$http', 'MovieService', function ($http, Mov
     let self = this;
     self.movies = MovieService.movies;
     self.createMovie = MovieService.createMovie;
+    self.deleteMovie = MovieService.deleteMovie;
 }])
