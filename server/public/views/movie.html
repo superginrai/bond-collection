@@ -5,9 +5,16 @@ Good morning, 007.
 <form ng-submit="vm.createMovie(vm.newMovie)">
     <label>
         Create a New Bond Movie:
-        <input placeholder="Movie Title" ng-model="vm.newMovie.name" />
+        <input placeholder="Movie Title" ng-model="vm.newMovie.title" />
     </label>
-    <select ng-model="vm.newMovie.actor">
+
+    <select ng-model="vm.newMovie.actor_id">
+        <!-- not selected / blank option -->
+        <option value="">Select Your Bond</option>
+        <option ng-repeat="actor in vm.actors.data" value="{{actor.id}}">{{actor.name}}</option>
+    </select>
+
+    <!-- <select ng-model="vm.newMovie.actor">
         <option value="" disabled selected>Select Your Bond</option>
         <option value="Daniel Craig">Daniel Craig</option>
         <option value="Pierce Brosnan">Pierce Brosnan</option>
@@ -22,7 +29,7 @@ Good morning, 007.
         <option value="Emily Blunt">Emily Blunt</option>
         <option value="Cillain Murphy">Cillian Murphy</option>
         <option value="Luke">Luke</option>
-    </select>
+    </select> -->
     <input placeholder="Release Year" ng-model="vm.newMovie.date" />
     <input placeholder="Run-Time" ng-model="vm.newMovie.runtime" />
     <select ng-model="vm.newMovie.image_path">
@@ -46,10 +53,10 @@ Good morning, 007.
             <div class="card" style="width: 18rem;">
                 <img class="card-img-top" ng-src="images/{{movie.image_path}}" alt="no picture available">
                 <div class="card-body">
-                    <h5 class="card-title">{{movie.name}}({{movie.date}})</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">{{movie.actor}}</h6>
+                    <h5 class="card-title">{{movie.title}}({{movie.date}})</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{movie.name}}</h6>
                     <p class="card-text">Run Time: {{movie.runtime}} min.</p>
-                    <a class="btn btn-primary" ng-click="vm.deleteMovie(movie)">Delete</a>
+                    <a class="btn btn-primary" ng-click="vm.deleteMovie(movie.id)">Delete</a>
                 </div>
             </div>
         </div>

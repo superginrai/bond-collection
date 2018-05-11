@@ -3,7 +3,9 @@ const pool = require('../modules/pool');
 
 router.get('/', (req, res) => {
     console.log('GET /movies');
-    pool.query(`SELECT * FROM "movie";`)
+    pool.query(`SELECT "movie"."id", "movie"."title", "actor"."name", "movie"."date", "movie"."runtime", "movie"."image_path" FROM "movie"
+    JOIN "actor" ON "movie"."actor_id" = "actor"."id"
+    ORDER BY "movie"."id";`)
         .then((results) => {
             res.send(results.rows);
         })
@@ -15,8 +17,9 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
     const movie = req.body;
-    pool.query(`INSERT INTO "movie" ("name", "actor", "date", "runtime", "image_path")
-    VALUES ($1, $2, $3, $4, $5);`, [movie.name, movie.actor, movie.date, movie.runtime, movie.image_path])
+    console.log(movie);
+    pool.query(`INSERT INTO "movie" ("title", "actor_id", "date", "runtime", "image_path")
+    VALUES ($1, $2, $3, $4, $5);`, [movie.title, movie.actor_id, movie.date, movie.runtime, movie.image_path])
         .then((results) => {
             res.sendStatus(200);
         })
@@ -26,11 +29,11 @@ router.post('/', (req, res) => {
         });
 });
 
-router.delete('/', (req, res) => {
-    const movie = req.query.id;
-    pool.query(`DELETE FROM "movie"
-    WHERE "id" = ${movie};`)
-        .then(() => {
+router.delete('/:id', (req, res) => {
+    const movie = req.params.id;
+    console.log(movie);
+    pool.query('DELETE FROM "movie" WHERE "id" = $1;', [movie])
+        .then((result) => {
             res.sendStatus(200);
         })
         .catch((error) => {

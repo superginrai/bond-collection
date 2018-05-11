@@ -1,1 +1,32 @@
-Bond, James  Bond.
+<h1>Bond, James Bond.</h1>
+
+
+<form ng-submit="vm.addActor(vm.newActor)">
+    <label>
+        Submit a new Bond Actor
+        <input placeholder="Name" ng-model="vm.newActor.name" />
+    </label>
+    <input type="submit" value="Submit" />
+</form>
+<table>
+    <thead>
+        <tr>
+            <th>Bond</th>
+            <th>Total Movies</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="actor in vm.actors.data">
+            <td>
+                <input ng-model="actor.name">
+            </td>
+            <td>
+                <!-- <input ng-model=""> -->
+            </td>
+            <td>
+                <button ng-click="vm.deleteActor(actor)">Retire This Bond</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

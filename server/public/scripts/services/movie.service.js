@@ -33,12 +33,13 @@ app.service('MovieService', ['$http', function ($http) {
             });
     }
 
-    self.deleteMovie = function (movieToDelete) {
+    self.deleteMovie = function (movieId) {
+        console.log(movieId);
         if (confirm('Are you sure you want to delete?')) {
             $http({
                 method: 'DELETE',
-                url: '/movies',
-                params: movieToDelete
+                url: `/movies/${movieId}`
+               // params: movieToDelete
             })
                 .then(function (response) {
                     console.log(response);
