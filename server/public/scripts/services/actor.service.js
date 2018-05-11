@@ -3,6 +3,8 @@ app.service('ActorService', ['$http', function ($http) {
 
     self.actors = { data: '' };
 
+    self.newActor = { name: ''};
+
     self.getActors = function () {
         $http({
             method: 'GET',

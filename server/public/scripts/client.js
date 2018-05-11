@@ -1,4 +1,4 @@
-let app = angular.module('BondApp', ['ngRoute']);
+let app = angular.module('BondApp', ['ngRoute', 'ngMaterial']);
 
 app.config(function ($routeProvider) {
     $routeProvider.when('/', {

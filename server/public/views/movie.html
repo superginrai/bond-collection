@@ -30,17 +30,17 @@ Good morning, 007.
 </form>
 
 <div>
-    <div class="card-group">
-        <div ng-repeat="movie in vm.movies.data">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" ng-src="images/{{movie.image_path}}" alt="no picture available">
-                <div class="card-body">
-                    <h5 class="card-title">{{movie.title}}({{movie.date}})</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">{{movie.name}}</h6>
-                    <p class="card-text">Run Time: {{movie.runtime}} min.</p>
-                    <a class="btn btn-primary" ng-click="vm.deleteMovie(movie.id)">Delete</a>
-                </div>
-            </div>
+    <!-- <div id=popupContainer> -->
+    <div class="card" ng-repeat="movie in vm.movies.data">
+        <!-- <div layout="row" style="width: 18rem;"> -->
+        <img ng-src="images/{{movie.image_path}}" alt="no picture available">
+        <div>
+            <h3 class="card-title">{{movie.title}}({{movie.date}})</h5>
+            <h4 class="card-subtitle mb-2 text-muted">{{movie.name}}</h6>
+            <p>Run Time: {{movie.runtime}} min.</p>
+            <md-button class="md-primary md-raised" ng-click="vm.deleteMovie(movie.id)">Delete</md-button>
+            <!-- </div> -->
+            <!-- </div> -->
         </div>
     </div>
 </div>

@@ -30,6 +30,7 @@ app.service('MovieService', ['$http', function ($http) {
                 console.log('You created a new Bond movie!', response);
                 self.newMovie = { title: '', actor_id: '', date: '', runtime: '', image_path: ''};
                 self.getMovies();
+                self.getActors();
             })
             .catch(function (error) {
                 console.log('error on /movie POST', error);
@@ -47,6 +48,7 @@ app.service('MovieService', ['$http', function ($http) {
                 .then(function (response) {
                     console.log(response);
                     self.getMovies();
+                    self.getActors();
                 })
                 .catch(function (error) {
                     console.log('error on movie DELETE', error);
