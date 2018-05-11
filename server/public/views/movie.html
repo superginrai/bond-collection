@@ -9,27 +9,9 @@ Good morning, 007.
     </label>
 
     <select ng-model="vm.newMovie.actor_id">
-        <!-- not selected / blank option -->
         <option value="">Select Your Bond</option>
         <option ng-repeat="actor in vm.actors.data" value="{{actor.id}}">{{actor.name}}</option>
     </select>
-
-    <!-- <select ng-model="vm.newMovie.actor">
-        <option value="" disabled selected>Select Your Bond</option>
-        <option value="Daniel Craig">Daniel Craig</option>
-        <option value="Pierce Brosnan">Pierce Brosnan</option>
-        <option value="Timothy Dalton">Timothy Dalton</option>
-        <option value="Roger Moore">Roger Moore</option>
-        <option value="George Lazenby">George Lazenby</option>
-        <option value="Sean Connery">Sean Connery</option>
-        <option value="Idris Elba">Idris Elba</option>
-        <option value="Charlize Theron">Charlize Theron</option>
-        <option value="Tom Hiddleston">Tom Hiddleston</option>
-        <option value="Chadwick Boseman">Chadwick Boseman</option>
-        <option value="Emily Blunt">Emily Blunt</option>
-        <option value="Cillain Murphy">Cillian Murphy</option>
-        <option value="Luke">Luke</option>
-    </select> -->
     <input placeholder="Release Year" ng-model="vm.newMovie.date" />
     <input placeholder="Run-Time" ng-model="vm.newMovie.runtime" />
     <select ng-model="vm.newMovie.image_path">

@@ -3,6 +3,8 @@ app.service('MovieService', ['$http', function ($http) {
 
     self.movies = { data: '' };
 
+    self.newMovie = { title: '', actor_id: '', date: '', runtime: '', image_path: ''};
+
     self.getMovies = function () {
         $http({
             method: 'GET',
@@ -26,6 +28,7 @@ app.service('MovieService', ['$http', function ($http) {
         })
             .then(function (response) {
                 console.log('You created a new Bond movie!', response);
+                self.newMovie = { title: '', actor_id: '', date: '', runtime: '', image_path: ''};
                 self.getMovies();
             })
             .catch(function (error) {
