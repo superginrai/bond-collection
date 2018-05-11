@@ -33,6 +33,18 @@ app.service('ActorService', ['$http', function ($http) {
             });
     }
 
+    self.retireActor = function (actorId) {
+        console.log('retire actor', actorId);
+        $http({
+            method: 'DELETE',
+            url: `/actors/${actorId}`
+        }).then((response) => {
+            self.getActors();
+        }).catch((error) => {
+            console.log('error on /actors DELETE', error);
+        })
+    }
+
     self.getActors();
 
 }]);
