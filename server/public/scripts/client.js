@@ -1,8 +1,9 @@
 let app = angular.module('BondApp', ['ngRoute', 'ngMaterial']);
 
-app.config(function ($routeProvider) {
+app.config(function ($routeProvider, $mdThemingProvider) {
     $routeProvider.when('/', {
-        template: '<h1>Pay Attention 007</h1>'
+        templateUrl: 'views/home.html',
+        controller: "HomeController as vm"
     })
         .when('/movie', {
             templateUrl: 'views/movie.html',
@@ -16,4 +17,8 @@ app.config(function ($routeProvider) {
             template: `<img ng-src="images/PigeonDoubleTake.gif">
             <h1>404</h1>`
         })
-})
+
+    $mdThemingProvider.theme('default')
+        .dark();
+    //.primaryPalette('blue-grey')
+});

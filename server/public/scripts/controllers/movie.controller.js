@@ -4,10 +4,11 @@ app.controller('MovieController', ['$http', 'MovieService', 'ActorService', func
     self.actors = ActorService.actors;
 
     self.newMovie = { title: '', actor_id: '', date: '', runtime: '', image_path: '' };
+    self.getActors = ActorService.getActors;
+    self.getMovies = MovieService.getMovies;
 
-    self.getActors = function () {
-        ActorService.getActors();
-    };
+    self.getActors();
+    self.getMovies();
 
     self.createMovie = function (newMovie) {
         MovieService.createMovie(newMovie);
@@ -15,4 +16,5 @@ app.controller('MovieController', ['$http', 'MovieService', 'ActorService', func
     };
 
     self.deleteMovie = MovieService.deleteMovie;
+
 }])

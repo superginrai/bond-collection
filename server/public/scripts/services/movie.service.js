@@ -1,9 +1,9 @@
-app.service('MovieService', ['$http', function ($http) {
+app.service('MovieService', ['$http', function ($http, $mdDialog, $mdToast) {
     var self = this;
 
     self.movies = { data: '' };
 
-    self.newMovie = { title: '', actor_id: '', date: '', runtime: '', image_path: ''};
+    self.newMovie = { title: '', actor_id: '', date: '', runtime: '', image_path: '' };
 
     self.getMovies = function () {
         $http({
@@ -28,7 +28,7 @@ app.service('MovieService', ['$http', function ($http) {
         })
             .then(function (response) {
                 console.log('You created a new Bond movie!', response);
-                self.newMovie = { title: '', actor_id: '', date: '', runtime: '', image_path: ''};
+                self.newMovie = { title: '', actor_id: '', date: '', runtime: '', image_path: '' };
                 self.getMovies();
                 self.getActors();
             })
@@ -43,7 +43,7 @@ app.service('MovieService', ['$http', function ($http) {
             $http({
                 method: 'DELETE',
                 url: `/movies/${movieId}`
-               // params: movieToDelete
+                // params: movieToDelete
             })
                 .then(function (response) {
                     console.log(response);

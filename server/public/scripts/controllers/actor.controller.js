@@ -1,14 +1,17 @@
 app.controller('ActorController', ['$http', 'ActorService', 'MovieService', function ($http, ActorService, MovieService, $mdDialog, $mdToast) {
     let self = this;
     self.actors = ActorService.actors;
-    //  self.movies = MovieService.movies;
-    self.addActor = ActorService.addActor;
-    //self.retireActor = ActorService.retireActor;
+    
     self.getActors = ActorService.getActors;
     self.getMovies = MovieService.getMovies;
 
     self.getActors();
     self.getMovies();
+
+    self.addActor = function (newActor) {
+        ActorService.addActor(newActor);
+        self.newActor = { name: '' };
+    };
 
     self.retireActor = function (actor) {
         if (actor.count > 0) {

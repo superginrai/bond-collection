@@ -1,10 +1,6 @@
-<div>
+<!-- <div>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(58, 101, 141);">
-        <!-- <a class="navbar-brand" ng-href="#!/">Home</a> -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
@@ -17,10 +13,45 @@
                 <li class="nav-item active">
                     <a class="nav-link" ng-href="#!/actor">Bonds</a>
                 </li>
+                <li>
+                    <a href="#!/pigeon">
+                        <img src="../images/PigeonDoubleTake.gif" height="25">
+                    </a>
+                </li>
             </ul>
-            <a class="form-inline my-2 my-lg-0" href="#!/pigeon">
-                <img src="images/PigoenDoubleTake.gif" height="25">
-            </a>
         </div>
     </nav>
+</div> -->
+
+
+
+<div ng-cloak>
+    <md-content class="md-padding">
+        <md-nav-bar md-no-ink-bar="disableInkBar" md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+            <md-nav-item md-nav-href="#!/" name="Home">Home</md-nav-item>
+            <md-nav-item md-nav-href="#!/movie" name="Movies">Movies</md-nav-item>
+            <md-nav-item md-nav-href="#!/actor" name="Bonds">Bonds</md-nav-item>
+            <!-- these require actual routing with ui-router or ng-route, so they
+      won't work in the demo
+      <md-nav-item md-nav-href="#page4" name="page5">Page Four</md-nav-item>
+      <md-nav-item md-nav-sref="app.page5" name="page4">Page Five</md-nav-item>
+      You can also add options for the <code>ui-sref-opts</code> attribute.
+      <md-nav-item md-nav-sref="page6" sref-opts="{reload:true, notify:true}">
+        Page Six
+      </md-nav-item>
+      -->
+        </md-nav-bar>
+        <!-- <span>{{status}}</span>
+        <div class="ext-content">
+            External content for `
+            <span>{{currentNavItem}}</span>`.
+        </div>
+
+        <md-checkbox ng-model="disableInkBar">Disable Ink Bar</md-checkbox>
+
+        <md-checkbox ng-model="secondTabDisabled" aria-label="Disable Second Tab" style="margin: 5px;">
+            Disable Second Tab
+        </md-checkbox> -->
+
+    </md-content>
 </div>

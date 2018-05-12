@@ -1,4 +1,4 @@
-app.service('ActorService', ['$http', function ($http) {
+app.service('ActorService', ['$http', function ($http, $mdDialog, $mdToast) {
     var self = this;
 
     self.actors = { data: '' };
