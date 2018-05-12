@@ -1,13 +1,28 @@
 <h1>Bond, James Bond.</h1>
 
+<div layout="column" ng-cloak class="md-inline-form">
+    <form ng-submit="vm.addActor(vm.newActor)">
+        <md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding>
+            <div>
+                <md-input-container>
+                    <label>Create a New Bond</label>
+                    <input ng-model="vm.newActor.name">
+                </md-input-container>
+                <md-button ng-click="vm.addActor(vm.newActor)" type="submit">Submit</md-button>
+            </div>
+        </md-content>
+    </form>
+</div>
 
-<form ng-submit="vm.addActor(vm.newActor)">
+
+
+<!-- <form ng-submit="vm.addActor(vm.newActor)">
     <label>
         Submit a new Bond Actor
         <input placeholder="Name" ng-model="vm.newActor.name" />
     </label>
     <input type="submit" value="Submit" />
-</form>
+</form> -->
 <table>
     <thead>
         <tr>

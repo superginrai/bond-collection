@@ -1,7 +1,11 @@
-#mi6 {
+/* #mi6 {
     background-image: url("/images/Ralph.jpg")no-repeat center center fixed;
-}
+} */
 
 .carddemoBasicUsage .card-media {
   background-color: #999999;
 } 
+
+body {
+    margin-left: 20px;
+}

@@ -1,9 +1,61 @@
-<h1>Movies</h1>
+<md-card>
+    <md-card-title>
+        <md-card-title-text>
+            <h1>Movies</h1>
+            <h3>Create the next James Bond adventure with the Bond of your choice!</h3>
+        </md-card-title-text>
+    </md-card-title>
+
+    <md-card-content>
+        <div layout="row">
+
+            <!-- <h1>Movies</h1>
 <h3>Create the next James Bond movie with the Bond of your choice!</h3>
-<div id="movies">
-    <form ng-submit="vm.createMovie(vm.newMovie)">
-        <label>
-            <!-- Add a Movie: -->
+<div id="movies"> -->
+            <form ng-submit="vm.createMovie(vm.newMovie)">
+                <!-- <md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding> -->
+                <!-- <div> -->
+                <md-input-container>
+                    <label>Movie Title</label>
+                    <input ng-model="vm.newMovie.title">
+                </md-input-container>
+                <md-input-container>
+                    <label>Release Year</label>
+                    <input ng-model="vm.newMovie.date">
+                </md-input-container>
+                <md-input-container>
+                    <label>Run-Time</label>
+                    <input ng-model="vm.newMovie.runtime">
+                </md-input-container>
+                <md-input-container>
+                    <label>Select Your Bond</label>
+                    <md-select ng-model="vm.newMovie.actor_id">
+                        <md-option ng-repeat="actor in vm.actors.data" value="{{actor.id}}">{{actor.name}}</md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container>
+                    <label>Add a Poster/Picture?</label>
+                    <md-select ng-model="vm.newMovie.image_path">
+                        <md-option>
+                            <em>None</em>
+                        </md-option>
+                        <md-option value="/images/ally.jpeg">Ally</md-option>
+                        <md-option value="/images/chadwick.png">Chadwick</md-option>
+                        <md-option value="/images/charlize.jpg">Charlize</md-option>
+                        <md-option value="/images/cillian.jpg">Cillian</md-option>
+                        <md-option value="/images/emily.jpg">Emily</md-option>
+                        <md-option value="/images/idris.jpg">Idris</md-option>
+                        <md-option value="/images/kris.jpeg">Kris</md-option>
+                        <md-option value="/images/luke.jpeg">Luke</md-option>
+                        <md-option value="/images/tom.jpg">Tom</md-option>
+                    </md-select>
+                </md-input-container>
+                <md-button ng-click="vm.createMovie(vm.newMovie)" type="submit">Submit</md-button>
+        </div>
+    </md-card-content>
+
+    <!-- <label>
+
             <input placeholder="Movie Title" ng-model="vm.newMovie.title" />
         </label>
 
@@ -26,7 +78,7 @@
             <option value="/images/tom.jpg">Tom</option>
         </select>
         <input type="submit" value="Create Movie" />
-    </form>
+    </form> -->
 
     <md-content class="md-padding" layout-xs="column" layout="row" layout-wrap>
         <div flex-xs flex-gt-xs="30" layout="column" ng-repeat="movie in vm.movies.data">
@@ -59,4 +111,4 @@
             </md-card>
         </div>
     </md-content>
-</div>
+    </div>
