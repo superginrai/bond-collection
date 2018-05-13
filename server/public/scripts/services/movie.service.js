@@ -43,7 +43,6 @@ app.service('MovieService', ['$http', function ($http, $mdDialog, $mdToast) {
             $http({
                 method: 'DELETE',
                 url: `/movies/${movieId}`
-                // params: movieToDelete
             })
                 .then(function (response) {
                     console.log(response);

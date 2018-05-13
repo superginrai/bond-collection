@@ -2,19 +2,16 @@
     <md-card-title>
         <md-card-title-text>
             <h1>Movies</h1>
-            <h3>Create the next James Bond adventure with the Bond of your choice!</h3>
+            <h2>Create the next James Bond adventure with the Bond of your choice!</h2>
         </md-card-title-text>
     </md-card-title>
 
     <md-card-content>
-        <div layout="row">
 
-            <!-- <h1>Movies</h1>
-<h3>Create the next James Bond movie with the Bond of your choice!</h3>
-<div id="movies"> -->
-            <form ng-submit="vm.createMovie(vm.newMovie)">
-                <!-- <md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding> -->
-                <!-- <div> -->
+        <form ng-submit="vm.createMovie(vm.newMovie)">
+            <!-- <md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding> -->
+            <!-- <div> -->
+            <div layout="row">
                 <md-input-container>
                     <label>Movie Title</label>
                     <input ng-model="vm.newMovie.title">
@@ -51,64 +48,39 @@
                     </md-select>
                 </md-input-container>
                 <md-button ng-click="vm.createMovie(vm.newMovie)" type="submit">Submit</md-button>
-        </div>
+            </div>
     </md-card-content>
 
-    <!-- <label>
+    <div>
+        <md-content class="md-padding" layout-xs="column" layout="row" layout-wrap>
+            <div flex-xs flex-gt-xs="30" layout="column" ng-repeat="movie in vm.movies.data">
+                <md-card md-theme="{{ showDarkTheme ? 'dark-orange' : 'default' }}" md-theme-watch>
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">{{movie.title}} ({{movie.date}})</span>
+                            <span class="md-subhead">{{movie.name}}</span>
+                            <span class="md-subhead">Run-Time: {{movie.runtime}} min.</span>
+                        </md-card-title-text>
+                    </md-card-title>
+                    <md-card-content layout="row" layout-align="space-between">
+                        <div class="md-media-xl card-media">
+                            <img ng-src="{{movie.image_path}}" alt="no picture available" style="width: 150px;">
+                        </div>
 
-            <input placeholder="Movie Title" ng-model="vm.newMovie.title" />
-        </label>
-
-        <select ng-model="vm.newMovie.actor_id">
-            <option value="">Select Your Bond</option>
-            <option ng-repeat="actor in vm.actors.data" value="{{actor.id}}">{{actor.name}}</option>
-        </select>
-        <input placeholder="Release Year" ng-model="vm.newMovie.date" />
-        <input placeholder="Run-Time" ng-model="vm.newMovie.runtime" />
-        <select ng-model="vm.newMovie.image_path">
-            <option value="" disabled selected>Add a Poster/Picture?</option>
-            <option value="/images/ally.jpeg">Ally</option>
-            <option value="/images/chadwick.png">Chadwick</option>
-            <option value="/images/charlize.jpg">Charlize</option>
-            <option value="/images/cillian.jpg">Cillian</option>
-            <option value="/images/emily.jpg">Emily</option>
-            <option value="/images/idris.jpg">Idris</option>
-            <option value="/images/kris.jpeg">Kris</option>
-            <option value="/images/luke.jpeg">Luke</option>
-            <option value="/images/tom.jpg">Tom</option>
-        </select>
-        <input type="submit" value="Create Movie" />
-    </form> -->
-
-    <md-content class="md-padding" layout-xs="column" layout="row" layout-wrap>
-        <div flex-xs flex-gt-xs="30" layout="column" ng-repeat="movie in vm.movies.data">
-            <md-card md-theme="{{ showDarkTheme ? 'dark-orange' : 'default' }}" md-theme-watch>
-                <md-card-title>
-                    <md-card-title-text>
-                        <span class="md-headline">{{movie.title}} ({{movie.date}})</span>
-                        <span class="md-subhead">{{movie.name}}</span>
-                        <span class="md-subhead">Run-Time: {{movie.runtime}} min.</span>
-                    </md-card-title-text>
-                </md-card-title>
-                <md-card-content layout="row" layout-align="space-between">
-                    <div class="md-media-xl card-media">
-                        <img ng-src="{{movie.image_path}}" alt="no picture available" style="width: 150px;">
-                    </div>
-
-                    <md-card-actions layout="column">
-                        <md-button class="md-icon-button" aria-label="Favorite">
-                            <!-- <md-icon md-svg-icon="img/icons/favorite.svg"></md-icon> -->
-                        </md-button>
-                        <md-button class="md-icon-button" aria-label="Settings">
-                            <!-- <md-icon md-svg-icon="img/icons/menu.svg"></md-icon> -->
-                        </md-button>
-                        <md-button class="md-icon-button" aria-label="Share">
-                            <!-- <md-icon md-svg-icon="img/icons/share-arrow.svg"></md-icon> -->
-                        </md-button>
-                        <md-button class="md-primary md-raised" ng-click="vm.deleteMovie(movie.id)">Delete</md-button>
-                    </md-card-actions>
-                </md-card-content>
-            </md-card>
-        </div>
-    </md-content>
+                        <md-card-actions layout="column">
+                            <md-button class="md-icon-button" aria-label="Favorite">
+                                <!-- <md-icon md-svg-icon="img/icons/favorite.svg"></md-icon> -->
+                            </md-button>
+                            <md-button class="md-icon-button" aria-label="Settings">
+                                <!-- <md-icon md-svg-icon="img/icons/menu.svg"></md-icon> -->
+                            </md-button>
+                            <md-button class="md-icon-button" aria-label="Share">
+                                <!-- <md-icon md-svg-icon="img/icons/share-arrow.svg"></md-icon> -->
+                            </md-button>
+                            <md-button class="md-primary md-raised" ng-click="vm.deleteMovie(movie.id)">Delete</md-button>
+                        </md-card-actions>
+                    </md-card-content>
+                </md-card>
+            </div>
+        </md-content>
     </div>

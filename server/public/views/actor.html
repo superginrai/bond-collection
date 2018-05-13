@@ -1,47 +1,57 @@
-<h1>Bond, James Bond.</h1>
-
-<div layout="column" ng-cloak class="md-inline-form">
-    <form ng-submit="vm.addActor(vm.newActor)">
-        <md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding>
-            <div>
-                <md-input-container>
-                    <label>Create a New Bond</label>
-                    <input ng-model="vm.newActor.name">
-                </md-input-container>
-                <md-button ng-click="vm.addActor(vm.newActor)" type="submit">Submit</md-button>
-            </div>
-        </md-content>
-    </form>
+<div layout="row">
+    <div flex class="first-box box">
+        <md-card>
+            <md-card-title>
+                <md-card-title-text>
+                    <h1>"Bond. James Bond."</h1>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+                <!-- <div layout="row" ng-cloak class="md-inline-form"> -->
+                <form ng-submit="vm.addActor(vm.newActor)">
+                    <md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding>
+                        <div>
+                            <md-input-container>
+                                <label>Create a New Bond</label>
+                                <input ng-model="vm.newActor.name">
+                            </md-input-container>
+                            <md-button ng-click="vm.addActor(vm.newActor)" type="submit">Submit</md-button>
+                        </div>
+                        <!-- <div>
+                            <md-button class="md-primary md-raised" ng-click="vm.showConfirm(ev)">Boop!</md-button>
+                        </div> -->
+                    </md-content>
+                </form>
+                <!-- </div> -->
+            </md-card-content>
+        </md-card>
+    </div>
+    <div flex class="second-box box">
+        <img src="/images/shanghai.jpg" width="500">
+    </div>
 </div>
 
-
-
-<!-- <form ng-submit="vm.addActor(vm.newActor)">
-    <label>
-        Submit a new Bond Actor
-        <input placeholder="Name" ng-model="vm.newActor.name" />
-    </label>
-    <input type="submit" value="Submit" />
-</form> -->
-<table>
-    <thead>
-        <tr>
-            <th>Bond</th>
-            <th>Total Movies</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr ng-repeat="actor in vm.actors.data">
-            <td>
-                <input ng-model="actor.name">
-            </td>
-            <td>
-                <input ng-model="actor.count">
-            </td>
-            <td>
-                <md-button class="md-primary md-raised" ng-click="vm.retireActor(actor)">Retire This Bond</md-button>
-            </td>
-        </tr>
-    </tbody>
-</table>
+<div flex class="first-box box">
+    <table>
+        <thead>
+            <tr>
+                <th>Bond</th>
+                <th>Total Movies</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="actor in vm.actors.data">
+                <td>
+                    <input ng-model="actor.name">
+                </td>
+                <td>
+                    <input ng-model="actor.count">
+                </td>
+                <td>
+                    <md-button class="md-primary md-raised" ng-click="vm.retireActor(actor)">Retire This Bond</md-button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

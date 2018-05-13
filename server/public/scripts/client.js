@@ -20,5 +20,4 @@ app.config(function ($routeProvider, $mdThemingProvider) {
 
     $mdThemingProvider.theme('default')
         .dark();
-    //.primaryPalette('blue-grey')
 });

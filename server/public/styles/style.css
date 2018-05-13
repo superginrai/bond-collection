@@ -1,6 +1,25 @@
-/* #mi6 {
-    background-image: url("/images/Ralph.jpg")no-repeat center center fixed;
-} */
+@font-face {
+    font-family: casino-royale;
+    src: url("../fonts/century\ gothic.ttf");
+}
+
+@font-face {
+    font-family: skyfall;
+    src: url("../fonts/SkyFall\ Done.ttf");
+}
+
+h1 {
+    font-family: skyfall;
+    text-shadow: 3px 3px 2px black, 2px 2px 0px rgba(0,0,0,0.15);
+}
+
+h2 {
+    font-family: casino-royale;
+}
+
+.md-headline {
+    font-family: casino-royale;
+}
 
 .carddemoBasicUsage .card-media {
   background-color: #999999;

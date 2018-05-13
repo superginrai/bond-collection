@@ -3,7 +3,7 @@ app.service('ActorService', ['$http', function ($http, $mdDialog, $mdToast) {
 
     self.actors = { data: '' };
 
-    self.newActor = { name: ''};
+    self.newActor = { name: '' };
 
     self.getActors = function () {
         $http({
@@ -36,15 +36,19 @@ app.service('ActorService', ['$http', function ($http, $mdDialog, $mdToast) {
     }
 
     self.retireActor = function (actorId) {
-        console.log('retire actor', actorId);
-        $http({
-            method: 'DELETE',
-            url: `/actors/${actorId}`
-        }).then((response) => {
-            self.getActors();
-        }).catch((error) => {
-            console.log('error on /actors DELETE', error);
-        })
+        if (confirm('Are you sure you want to retire this Bond forever (forever...forever...)?')) {
+            console.log('retire actor', actorId);
+            $http({
+                method: 'DELETE',
+                url: `/actors/${actorId}`
+            }).then((response) => {
+                self.getActors();
+            }).catch((error) => {
+                console.log('error on /actors DELETE', error);
+            });
+        } else {
+            console.log('do NOT delete');
+        }
     }
 
     self.getActors();
