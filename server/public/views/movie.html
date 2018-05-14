@@ -1,46 +1,84 @@
-Good morning, 007.
-
-<h1>Movies</h1>
-
-<form ng-submit="vm.createMovie(vm.newMovie)">
-    <label>
-        Create a New Bond Movie:
-        <input placeholder="Movie Title" ng-model="vm.newMovie.title" />
-    </label>
-
-    <select ng-model="vm.newMovie.actor_id">
-        <option value="">Select Your Bond</option>
-        <option ng-repeat="actor in vm.actors.data" value="{{actor.id}}">{{actor.name}}</option>
-    </select>
-    <input placeholder="Release Year" ng-model="vm.newMovie.date" />
-    <input placeholder="Run-Time" ng-model="vm.newMovie.runtime" />
-    <select ng-model="vm.newMovie.image_path">
-        <option value="" disabled selected>Add a Poster/Picture?</option>
-        <option value="ally.jpeg">Ally</option>
-        <option value="chadwick.png">Chadwick</option>
-        <option value="charlize.jpg">Charlize</option>
-        <option value="cillian.jpg">Cillian</option>
-        <option value="emily.jpg">Emily</option>
-        <option value="idris.jpg">Idris</option>
-        <option value="kris.jpeg">Kris</option>
-        <option value="luke.jpeg">Luke</option>
-        <option value="tom.jpg">Tom</option>
-    </select>
-    <input type="submit" value="Create Movie" />
-</form>
-
-<div>
-    <div class="card-group">
-        <div ng-repeat="movie in vm.movies.data">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" ng-src="images/{{movie.image_path}}" alt="no picture available">
-                <div class="card-body">
-                    <h5 class="card-title">{{movie.title}}({{movie.date}})</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">{{movie.name}}</h6>
-                    <p class="card-text">Run Time: {{movie.runtime}} min.</p>
-                    <a class="btn btn-primary" ng-click="vm.deleteMovie(movie.id)">Delete</a>
-                </div>
+<md-card>
+    <md-card-title>
+        <md-card-title-text>
+            <h1>Movies</h1>
+            <h2>Create the next James Bond adventure with the Bond of your choice!</h2>
+        </md-card-title-text>
+    </md-card-title>
+    <md-card-content>
+        <form ng-submit="vm.createMovie(vm.newMovie)">
+            <div layout="row">
+                <md-input-container>
+                    <label>Movie Title</label>
+                    <input ng-model="vm.newMovie.title">
+                </md-input-container>
+                <md-input-container>
+                    <label>Release Year</label>
+                    <input ng-model="vm.newMovie.date">
+                </md-input-container>
+                <md-input-container>
+                    <label>Run-Time</label>
+                    <input ng-model="vm.newMovie.runtime">
+                </md-input-container>
+                <md-input-container>
+                    <label>Select Your Bond</label>
+                    <md-select ng-model="vm.newMovie.actor_id">
+                        <md-option ng-repeat="actor in vm.actors.data" value="{{actor.id}}">{{actor.name}}</md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container>
+                    <label>Add a Poster/Picture?</label>
+                    <md-select ng-model="vm.newMovie.image_path">
+                        <md-option>
+                            <em>None</em>
+                        </md-option>
+                        <md-option value="/images/007.jpeg">007</md-option>
+                        <md-option value="/images/ally.jpeg">Ally</md-option>
+                        <md-option value="/images/chadwick.png">Chadwick</md-option>
+                        <md-option value="/images/charlize.jpg">Charlize</md-option>
+                        <md-option value="/images/cillian.jpg">Cillian</md-option>
+                        <md-option value="/images/daniel.png">Daniel</md-option>
+                        <md-option value="/images/emily.jpg">Emily</md-option>
+                        <md-option value="/images/George.jpg">George</md-option>
+                        <md-option value="/images/idris.jpg">Idris</md-option>
+                        <md-option value="/images/kris.jpeg">Kris</md-option>
+                        <md-option value="/images/luke.jpeg">Luke</md-option>
+                        <md-option value="/images/pierce.jpg">Pierce</md-option>
+                        <md-option value="/images/roger.jpg">Roger</md-option>
+                        <md-option value="/images/sean.png">Sean</md-option>
+                        <md-option value="/images/Timothy.jpg">Timothy</md-option>
+                        <md-option value="/images/tom.png">Tom</md-option>
+                    </md-select>
+                </md-input-container>
+                <md-button ng-click="vm.createMovie(vm.newMovie)" type="submit">Submit</md-button>
             </div>
-        </div>
+        </form>
+    </md-card-content>
+    <div>
+        <md-content class="md-padding" layout-xs="column" layout="row" layout-wrap>
+            <div flex-xs flex-gt-xs="30" layout="column" ng-repeat="movie in vm.movies.data">
+                <md-card>
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">{{movie.title}} ({{movie.date}})</span>
+                            <span class="md-subhead">{{movie.name}}</span>
+                            <span class="md-subhead">Run-Time: {{movie.runtime}} min.</span>
+                        </md-card-title-text>
+                    </md-card-title>
+                    <md-card-content layout="row" layout-align="space-between">
+                        <div class="md-media-xl card-media">
+                            <img ng-src="{{movie.image_path}}" alt="no picture available" style="height: 250px;">
+                        </div>
+                        <md-card-actions layout="column">
+                            <md-button class="md-icon-button" aria-label="Favorite" ng-click="vm.favMovie(movie)">
+                                <i class="material-icons">favorite</i>
+                            </md-button>
+                            <md-button class="md-icon-button" ng-click="vm.deleteMovie(movie.id)">
+                                <i class="material-icons">delete</i>
+                            </md-button>
+                        </md-card-actions>
+                    </md-card-content>
+                </md-card>
+            </div>
+        </md-content>
     </div>
-</div>

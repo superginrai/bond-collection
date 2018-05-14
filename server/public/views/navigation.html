@@ -1,25 +1,13 @@
-<div>
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(58, 101, 141);">
-        <a class="navbar-brand" ng-href="#!/">Home</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" ng-href="#!/movie">Movies
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" ng-href="#!/actor">Bonds</a>
-                </li>
-            </ul>
-            <a class="form-inline my-2 my-lg-0" href="#!/pigeon">
-                <img src="images/PigoenDoubleTake.gif" height="25">
-            </a>
-        </div>
-    </nav>
+<div ng-cloak>
+    <md-content class="md-padding">
+        <md-nav-bar md-no-ink-bar="disableInkBar" md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+            <md-nav-item md-nav-href="#!/" name="Home">Home</md-nav-item>
+            <md-nav-item md-nav-href="#!/movie" name="Movies">Movies</md-nav-item>
+            <md-nav-item md-nav-href="#!/actor" name="Bonds">Bonds</md-nav-item>
+            <md-nav-item md-nav-href="#!/favs" name="Favorites">Favorites</md-nav-item>
+            <md-nav-item md-nav-href="http://www.007.com/" target="_blank" name="007">
+                <img src="/images/007_logo.png" height="25">
+            </md-nav-item>
+        </md-nav-bar>
+    </md-content>
 </div>

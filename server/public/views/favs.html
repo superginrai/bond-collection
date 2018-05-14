@@ -1,0 +1,38 @@
+<md-card>
+    <md-card-title>
+        <md-card-title-text>
+            <h1>Nobody Does It Better</h1>
+            <h2>Your favorite Bond cinematic journeys.</h2>
+        </md-card-title-text>
+    </md-card-title>
+    <md-card-content>
+    </md-card-content>
+</md-card>
+<div>
+    <md-content class="md-padding" layout-xs="column" layout="row" layout-wrap>
+        <div flex-xs flex-gt-xs="30" layout="column" ng-repeat="movie in vm.favs.data">
+            <md-card>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">{{movie.title}} ({{movie.date}})</span>
+                        <span class="md-subhead">{{movie.name}}</span>
+                        <span class="md-subhead">Run-Time: {{movie.runtime}} min.</span>
+                    </md-card-title-text>
+                </md-card-title>
+                <md-card-content layout="row" layout-align="space-between">
+                    <div class="md-media-xl card-media">
+                        <img ng-src="{{movie.image_path}}" alt="no picture available" style="height: 225px;">
+                    </div>
+                    <md-card-actions layout="column">
+                        <md-button class="md-icon-button" aria-label="Favorite" ng-click="vm.unFavMovie(movie)">
+                            <i class="material-icons">favorite</i>
+                        </md-button>
+                        <md-button class="md-icon-button" ng-click="vm.deleteMovie(movie.id)">
+                            <i class="material-icons">delete</i>
+                        </md-button>
+                    </md-card-actions>
+                </md-card-content>
+            </md-card>
+        </div>
+    </md-content>
+</div>
