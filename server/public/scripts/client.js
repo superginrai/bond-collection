@@ -13,6 +13,10 @@ app.config(function ($routeProvider, $mdThemingProvider) {
             templateUrl: 'views/actor.html',
             controller: "ActorController as vm"
         })
+        .when('/favs', {
+            templateUrl: 'views/favs.html',
+            controller: 'FavController as vm'
+        })
         .otherwise({
             template: `<img ng-src="images/PigeonDoubleTake.gif">
             <h1>404</h1>`

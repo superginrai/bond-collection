@@ -7,22 +7,15 @@
                 </md-card-title-text>
             </md-card-title>
             <md-card-content>
-                <!-- <div layout="row" ng-cloak class="md-inline-form"> -->
-                <form ng-submit="vm.addActor(vm.newActor)">
-                    <md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding>
-                        <div>
-                            <md-input-container>
-                                <label>Create a New Bond</label>
-                                <input ng-model="vm.newActor.name">
-                            </md-input-container>
-                            <md-button ng-click="vm.addActor(vm.newActor)" type="submit">Submit</md-button>
-                        </div>
-                        <!-- <div>
-                            <md-button class="md-primary md-raised" ng-click="vm.showConfirm(ev)">Boop!</md-button>
-                        </div> -->
-                    </md-content>
+                <form>
+                    <div>
+                        <md-input-container>
+                            <label>Create a New Bond</label>
+                            <input ng-model="vm.newActor.name">
+                        </md-input-container>
+                        <md-button ng-click="vm.addActor(vm.newActor)" type="submit">Submit</md-button>
+                    </div>
                 </form>
-                <!-- </div> -->
             </md-card-content>
         </md-card>
     </div>

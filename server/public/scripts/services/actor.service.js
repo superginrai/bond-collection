@@ -5,6 +5,7 @@ app.service('ActorService', ['$http', function ($http, $mdDialog, $mdToast) {
 
     self.newActor = { name: '' };
 
+    //Requests all actor objects from the database via the server and sends them to display on the DOM.
     self.getActors = function () {
         $http({
             method: 'GET',
@@ -19,6 +20,7 @@ app.service('ActorService', ['$http', function ($http, $mdDialog, $mdToast) {
             });
     }
 
+    //Sends a new actor object to the server to get added to the database.
     self.addActor = function (newActor) {
         console.log('Add this Bond actor:', newActor);
         $http({
@@ -35,6 +37,7 @@ app.service('ActorService', ['$http', function ($http, $mdDialog, $mdToast) {
             });
     }
 
+    //Requests deletion of an actor object from the database through the server.
     self.retireActor = function (actorId) {
         if (confirm('Are you sure you want to retire this Bond forever (forever...forever...)?')) {
             console.log('retire actor', actorId);
@@ -50,7 +53,5 @@ app.service('ActorService', ['$http', function ($http, $mdDialog, $mdToast) {
             console.log('do NOT delete');
         }
     }
-
-    self.getActors();
 
 }]);
