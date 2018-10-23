@@ -5,7 +5,6 @@
 
 Please run the following SQL queries in database "bond":
 
-
 CREATE TABLE "actor" (
 "id" SERIAL PRIMARY KEY,
 "name" VARCHAR(120) NOT NULL
